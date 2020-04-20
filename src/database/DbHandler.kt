@@ -2,6 +2,8 @@ package database
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import models.Client
+import models.Room
 import models.User
 import java.sql.Connection
 import java.sql.DriverManager
@@ -28,6 +30,7 @@ object DbHandler {
     }
 
     fun addUser(user: User) = statement.executeUpdate(user.makeInsertString())
+    fun updateUser(user: User) = statement.executeUpdate(user.makeUpdateString())
 
     fun getUserByEmail(email: String): User? {
         val resultSet = statement.executeQuery("SELECT * FROM User WHERE email = '$email'")
@@ -35,6 +38,27 @@ object DbHandler {
         else null
     }
 
-    fun updateUser(user: User) = statement.executeUpdate(user.makeUpdateString())
+    fun getClientList(): ObservableList<Client> {
+        val clientList = FXCollections.observableArrayList<Client>()
+        val resultSet: ResultSet = statement.executeQuery("SELECT * FROM Client")
+        while (resultSet.next()) clientList.add(Client.toObject(resultSet))
+        return clientList
+    }
+
+    fun addClient(client: Client) = statement.executeUpdate(client.makeInsertString())
+    fun updateClient(client: Client) = statement.executeUpdate(client.makeUpdateString())
+    fun deleteClient(id: Int) = statement.executeUpdate("DELETE FROM Client WHERE idClient = $id")
+
+
+
+    fun getRoomList(): ObservableList<Room> {
+        val roomList = FXCollections.observableArrayList<Room>()
+        val resultSet: ResultSet = statement.executeQuery("SELECT * FROM Room")
+        while (resultSet.next()) roomList.add(Room.toObject(resultSet))
+        return roomList
+    }
+    
+    fun addRoom(Room: Room) = statement.executeUpdate(Room.makeInsertString())
+    fun updateRoom(Room: Room) = statement.executeUpdate(Room.makeUpdateString())
 
 }

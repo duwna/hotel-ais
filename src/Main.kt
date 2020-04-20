@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import utils.openNextWindow
 
 class Main : Application() {
     @Throws(Exception::class)
@@ -15,6 +16,8 @@ class Main : Application() {
             scene = Scene(root, 1024.0, 768.0)
             show()
         }
+
+        openNextWindow(javaClass.getResource("/clients/clients.fxml"), "")
     }
 
     companion object {

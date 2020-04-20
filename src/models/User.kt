@@ -14,7 +14,8 @@ data class User(
 ) : DataBaseModel {
 
     override fun makeInsertString(): String =
-            "INSERT INTO User VALUES (default, $position, $email, $phone, $firstName, $lastName, $patronymic, $password)"
+            "INSERT INTO User VALUES (default, $position, '$email', '$phone', '$firstName', " +
+                    "'$lastName', '$patronymic', '$password')"
 
     override fun makeUpdateString(): String = "UPDATE User SET " +
             "position = '$position', " +
