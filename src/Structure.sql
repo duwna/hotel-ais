@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `Room` (
   `number` INT NOT NULL,
   `bedsCount` TINYINT UNSIGNED NOT NULL,
   `price` INT UNSIGNED NOT NULL,
-  `category` TINYINT NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idRoom`))
 ENGINE = InnoDB;
 
