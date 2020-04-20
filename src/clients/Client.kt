@@ -1,5 +1,6 @@
-package models
+package clients
 
+import models.DataBaseModel
 import java.sql.ResultSet
 
 data class Client(

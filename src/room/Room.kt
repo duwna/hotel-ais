@@ -1,5 +1,6 @@
-package models
+package room
 
+import models.DataBaseModel
 import java.sql.ResultSet
 
 data class Room(
@@ -11,15 +12,15 @@ data class Room(
 ) : DataBaseModel {
 
     override fun makeInsertString(): String =
-            "INSERT INTO Client VALUES (default, $number, $bedsCount, $price, '$category')"
+            "INSERT INTO Room VALUES (default, $number, $bedsCount, $price, '$category')"
 
 
-    override fun makeUpdateString(): String = "UPDATE Client SET " +
+    override fun makeUpdateString(): String = "UPDATE Room SET " +
             "idRoom = $idRoom, " +
             "number = $number, " +
             "bedsCount = $bedsCount, " +
             "price = $price, " +
-            "category = '$category', " +
+            "category = '$category' " +
             "WHERE idRoom = $idRoom"
 
     companion object {

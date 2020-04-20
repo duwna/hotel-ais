@@ -18,6 +18,7 @@ class Main : Application() {
         }
 
         openNextWindow(javaClass.getResource("/clients/clients.fxml"), "")
+        openNextWindow(javaClass.getResource("/room/room.fxml"), "")
     }
 
     companion object {

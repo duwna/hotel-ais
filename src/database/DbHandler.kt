@@ -2,8 +2,8 @@ package database
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import models.Client
-import models.Room
+import clients.Client
+import room.Room
 import models.User
 import java.sql.Connection
 import java.sql.DriverManager
@@ -60,5 +60,6 @@ object DbHandler {
     
     fun addRoom(Room: Room) = statement.executeUpdate(Room.makeInsertString())
     fun updateRoom(Room: Room) = statement.executeUpdate(Room.makeUpdateString())
+    fun deleteRoom(id: Int) = statement.executeUpdate("DELETE FROM Room WHERE idRoom = $id")
 
 }

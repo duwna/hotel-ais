@@ -5,7 +5,6 @@ import javafx.fxml.FXML
 import javafx.fxml.Initializable
 import javafx.scene.control.*
 import javafx.scene.control.cell.PropertyValueFactory
-import models.Client
 import utils.showAlert
 import java.net.URL
 import java.sql.SQLIntegrityConstraintViolationException
