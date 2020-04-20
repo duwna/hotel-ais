@@ -35,4 +35,6 @@ object DbHandler {
         else null
     }
 
+    fun updateUser(user: User) = statement.executeUpdate(user.makeUpdateString())
+
 }

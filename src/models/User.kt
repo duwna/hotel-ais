@@ -16,9 +16,22 @@ data class User(
     override fun makeInsertString(): String =
             "INSERT INTO User VALUES (default, $position, $email, $phone, $firstName, $lastName, $patronymic, $password)"
 
-    override fun makeUpdateString(): String {
-        TODO("Not yet implemented")
-    }
+    override fun makeUpdateString(): String = "UPDATE User SET " +
+            "position = '$position', " +
+            "email = '$email', " +
+            "phone = '$phone', " +
+            "firstName = '$firstName', " +
+            "lastName = '$lastName', " +
+            "patronymic = '$patronymic', " +
+            "password = '$password', " +
+            "WHERE $idUser = $idUser"
+
+    val positionName: String
+        get() = when (position) {
+            ADMIN -> "Администратор"
+            DISP -> "Диспетчер"
+            else -> throw IllegalArgumentException()
+        }
 
     companion object {
         const val ADMIN = 0
