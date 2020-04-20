@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="start.StartController">
+   <items>
+      <VBox maxHeight="100.0" minHeight="100.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="92.0" fitWidth="569.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0">
+         <children>
+            <Label fx:id="labelFullName" text="Label">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="36.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="labelPosition" text="Label">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="labelClients" text="Клиенты" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelRooms" text="Номера" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelReserv" text="Бронирование" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelUsers" text="Пользователи" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelWorkers" text="Работники" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelCleaning" text="Уборка" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelEdit" text="Редактировать данные профиля" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="29.0" />
+               </font>
+            </Label>
+            <VBox fx:id="vboxEdit" alignment="CENTER" spacing="10.0" visible="false">
+               <children>
+                  <HBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <VBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="tfFirstName" maxWidth="200.0" minWidth="200.0" promptText="Имя" />
+                              <TextField fx:id="tfLastName" maxWidth="200.0" minWidth="200.0" promptText="Фамилия" />
+                              <TextField fx:id="tfPatronymic" maxWidth="200.0" minWidth="200.0" promptText="Фамилия" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="tfPhone" maxWidth="200.0" minWidth="200.0" promptText="Телефон" />
+                              <TextField fx:id="tfEmail" maxWidth="200.0" minWidth="200.0" promptText="Логин" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="10.0">
+                           <children>
+                              <PasswordField fx:id="tfPassword" maxWidth="200.0" minWidth="200.0" promptText="Пароль" style="-fx-text-inner-color: #000000;" />
+                              <PasswordField fx:id="tfRePassword" maxWidth="200.0" minWidth="200.0" promptText="Повторите пароль" style="-fx-text-inner-color: #000000;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnSave" mnemonicParsing="false" text="Сохранить" />
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </VBox>
+            <Label fx:id="labelExit" prefHeight="0.0" prefWidth="58.0" text="Выход" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>
