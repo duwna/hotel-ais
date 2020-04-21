@@ -4,7 +4,7 @@ import cleaning.Cleaning
 import clients.Client
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import models.User
+import user.User
 import reservation.Reservation
 import room.Room
 import java.sql.Connection
@@ -33,6 +33,8 @@ object DbHandler {
 
     fun addUser(user: User) = statement.executeUpdate(user.makeInsertString())
     fun updateUser(user: User) = statement.executeUpdate(user.makeUpdateString())
+    fun deleteUser(id: Int) = statement.executeUpdate("DELETE FROM User WHERE idUser = $id")
+
 
     fun getUserByEmail(email: String): User? {
         val resultSet = statement.executeQuery("SELECT * FROM User WHERE email = '$email'")

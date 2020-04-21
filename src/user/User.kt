@@ -1,5 +1,6 @@
-package models
+package user
 
+import DataBaseModel
 import java.sql.ResultSet
 
 data class User(
@@ -24,8 +25,8 @@ data class User(
             "firstName = '$firstName', " +
             "lastName = '$lastName', " +
             "patronymic = '$patronymic', " +
-            "password = '$password', " +
-            "WHERE $idUser = $idUser"
+            "password = '$password' " +
+            "WHERE idUser = $idUser"
 
     val positionName: String
         get() = when (position) {

@@ -10,9 +10,9 @@ import javafx.scene.control.Label
 import javafx.scene.control.PasswordField
 import javafx.scene.control.TextField
 import javafx.scene.layout.VBox
-import models.User
-import models.User.Companion.ADMIN
-import models.User.Companion.DISP
+import user.User
+import user.User.Companion.ADMIN
+import user.User.Companion.DISP
 import utils.openNextWindow
 import utils.showAlert
 import java.net.URL
@@ -85,33 +85,33 @@ class StartController : Initializable {
         initViews()
 
         labelClients.setOnMouseClicked {
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-                    "Детали и поставщики")
+            openNextWindow(javaClass.getResource("/clients/clients.fxml"),
+                    "Клиенты")
         }
         labelRooms.setOnMouseClicked {
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-                    "Детали и поставщики")
+            openNextWindow(javaClass.getResource("/room/room.fxml"),
+                    "Комнаты")
         }
         labelReserv.setOnMouseClicked {
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-                    "Детали и поставщики")
+            openNextWindow(javaClass.getResource("/reservation/reservation.fxml"),
+                    "Бронирование")
         }
         labelUsers.setOnMouseClicked {
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-                    "Детали и поставщики")
-        }
-        labelWorkers.setOnMouseClicked {
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-                    "Детали и поставщики")
+            openNextWindow(javaClass.getResource("/user/user.fxml"),
+                    "Пользователи")
         }
         labelCleaning.setOnMouseClicked {
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-                    "Детали и поставщики")
+            openNextWindow(javaClass.getResource("/cleaning/cleaning.fxml"),
+                    "Уборка комнат")
         }
+//        labelWorkers.setOnMouseClicked {
+//            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
+//                    "Детали и поставщики")
+//        }
 
         labelEdit.setOnMouseClicked { changeEdit() }
         labelExit.setOnMouseClicked { event ->
-            openNextWindow(javaClass.getResource("/com/duwna/fxml/enter.fxml"), "Вход")
+            openNextWindow(javaClass.getResource("/enter/enter.fxml"), "Вход")
             (event.source as Node).scene.window.hide()
         }
         btnSave.setOnAction {
@@ -144,8 +144,8 @@ class StartController : Initializable {
         labelClients.isVisible = user.position == ADMIN
         labelRooms.isVisible = user.position == ADMIN
         labelReserv.isVisible = user.position == ADMIN
+        labelUsers.isVisible = user.position == ADMIN
 
-        labelUsers.isVisible = user.position == DISP
         labelWorkers.isVisible = user.position == DISP
         labelCleaning.isVisible = user.position == DISP
 

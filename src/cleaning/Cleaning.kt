@@ -1,6 +1,6 @@
 package cleaning
 
-import models.DataBaseModel
+import DataBaseModel
 import java.sql.ResultSet
 
 data class Cleaning(

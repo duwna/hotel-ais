@@ -1,7 +1,7 @@
 package reservation
 
 import clients.Client
-import models.DataBaseModel
+import DataBaseModel
 import room.Room
 import java.sql.ResultSet
 
