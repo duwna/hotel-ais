@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservation.ReservationController">
+   <items>
+      <SplitPane dividerPositions="0.7" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+         <items>
+            <TableView fx:id="tableReservation" prefHeight="200.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn fx:id="columnReservationNumber" prefWidth="132.0" text="Номер комнаты" />
+                  <TableColumn fx:id="columnReservationClient" prefWidth="124.0" text="Клиент" />
+                  <TableColumn fx:id="columnReservationStart" prefWidth="180.0" text="Начало брони" />
+                  <TableColumn fx:id="columnReservationEnd" prefWidth="140.0" text="Конец брони" />
+                  <TableColumn fx:id="columnReservationSum" prefWidth="135.0" text="Сумма" />
+               </columns>
+            </TableView>
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Клиент:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelClient" text="Клиент">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Номер:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelNumber" text="Номер">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Начало брони:">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfStart" promptText="YYYY-MM-DD" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Конец брони: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="tfEnd" promptText="YYYY-MM-DD" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="20.0">
+                           <children>
+                              <Button fx:id="btnAdd" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Создать бронь" />
+                              <Button fx:id="btnEdit" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Редактировать" />
+                              <Button fx:id="btnDelete" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Отменить бронь" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </HBox>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+         <items>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="370.0" prefWidth="303.0">
+               <items>
+                  <Label text="Клиенты">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tableClient">
+                     <columns>
+                        <TableColumn fx:id="columnLastName" prefWidth="92.0" text="Фамилия" />
+                        <TableColumn fx:id="columnFirstName" prefWidth="104.0" text="Имя" />
+                        <TableColumn fx:id="columnPatronymic" prefWidth="107.0" text="Отчество" />
+                     </columns>
+                  </TableView>
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                  <Label text="Комнаты">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tableRoom">
+                     <columns>
+                        <TableColumn fx:id="columnNumber" minWidth="0.0" prefWidth="113.0" text="Номер" />
+                        <TableColumn fx:id="columnNumberOfBeds" maxWidth="229.0" prefWidth="190.0" text="Кол-во спальных мест" />
+                     </columns>
+                  </TableView>
+              </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </items>
+</SplitPane>

@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `Client` (
   `lastName` VARCHAR(45) NOT NULL,
   `patronymic` VARCHAR(45) NOT NULL,
   `passportNumber` VARCHAR(45) NOT NULL,
-  `passportData` VARCHAR(45) NOT NULL,
+  `passportData` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`idClient`))
 ENGINE = InnoDB;
 
@@ -56,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `Reservation` (
   `startDate` DATE NOT NULL,
   `endDate` DATE NOT NULL,
   `sum` INT NOT NULL,
-  `nutritionType` TINYINT NOT NULL,
   PRIMARY KEY (`idReservation`),
   CONSTRAINT `idRoom`
     FOREIGN KEY (`idRoom`)
@@ -113,10 +112,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Cleaning` (
   `idCleaning` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `idRoom` INT UNSIGNED NOT NULL,
+  `number` INT UNSIGNED NOT NULL,
   `dateTime` DATETIME NOT NULL,
-  PRIMARY KEY (`idCleaning`),
-  CONSTRAINT `idRoom1`
-    FOREIGN KEY (`idRoom`)
-    REFERENCES `Room` (`idRoom`))
+  PRIMARY KEY (`idCleaning`))
 ENGINE = InnoDB;
+
+
