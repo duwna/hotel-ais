@@ -104,11 +104,10 @@ class StartController : Initializable {
             openNextWindow(javaClass.getResource("/cleaning/cleaning.fxml"),
                     "Уборка комнат")
         }
-//        labelWorkers.setOnMouseClicked {
-//            openNextWindow(javaClass.getResource("/com/duwna/fxml/detail_provider.fxml"),
-//                    "Детали и поставщики")
-//        }
-
+        labelWorkers.setOnMouseClicked {
+            openNextWindow(javaClass.getResource("/worker/worker.fxml"),
+                    "Работники")
+        }
         labelEdit.setOnMouseClicked { changeEdit() }
         labelExit.setOnMouseClicked { event ->
             openNextWindow(javaClass.getResource("/enter/enter.fxml"), "Вход")

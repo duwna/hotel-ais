@@ -16,6 +16,11 @@
    <items>
       <VBox maxHeight="100.0" minHeight="100.0" style="-fx-background-color: #ffffff;">
          <children>
+            <Label fx:id="labelExit" prefHeight="0.0" prefWidth="58.0" text="Выход" textFill="#231d65">
+               <font>
+                  <Font name="DejaVu Sans Bold" size="15.0" />
+               </font>
+            </Label>
             <ImageView fitHeight="92.0" fitWidth="569.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@logo.png" />
@@ -107,11 +112,6 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </VBox>
-            <Label fx:id="labelExit" prefHeight="0.0" prefWidth="58.0" text="Выход" textFill="#231d65">
-               <font>
-                  <Font name="DejaVu Sans Bold" size="15.0" />
-               </font>
-            </Label>
          </children>
       </VBox>
    </items>

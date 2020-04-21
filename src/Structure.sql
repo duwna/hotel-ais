@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `Client` (
   `lastName` VARCHAR(45) NOT NULL,
   `patronymic` VARCHAR(45) NOT NULL,
   `passportNumber` VARCHAR(45) NOT NULL,
-  `passportData` VARCHAR(100) NOT NULL,
+  `passportData` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`idClient`))
 ENGINE = InnoDB;
 
@@ -74,38 +74,11 @@ CREATE TABLE IF NOT EXISTS `Worker` (
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
   `patronymic` VARCHAR(45) NOT NULL,
-  `position` INT NOT NULL,
+  `position` VARCHAR(45) NOT NULL,
+  `schedule` VARCHAR(45) NOT NULL,
+  `time` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idWorker`))
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `DayOfWeek`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `DayOfWeek` (
-  `idDayOfWeek` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`idDayOfWeek`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `Schedule`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Schedule` (
-  `idSchedule` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `idWorker` INT UNSIGNED NOT NULL,
-  `idDayOfWeek` INT UNSIGNED NOT NULL,
-  `from` TIME NOT NULL,
-  `to` TIME NOT NULL,
-  PRIMARY KEY (`idSchedule`),
-  CONSTRAINT `idWorker`
-    FOREIGN KEY (`idWorker`)
-    REFERENCES `Worker` (`idWorker`),
-  CONSTRAINT `idDayOfWeek`
-    FOREIGN KEY (`idDayOfWeek`)
-    REFERENCES `DayOfWeek` (`idDayOfWeek`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `Cleaning`

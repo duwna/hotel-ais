@@ -7,6 +7,7 @@ import javafx.collections.ObservableList
 import user.User
 import reservation.Reservation
 import room.Room
+import worker.Worker
 import java.sql.Connection
 import java.sql.DriverManager
 import java.sql.ResultSet
@@ -111,4 +112,15 @@ object DbHandler {
 
         return true
     }
+
+    fun getWorkerList(): ObservableList<Worker> {
+        val workerList = FXCollections.observableArrayList<Worker>()
+        val resultSet: ResultSet = statement.executeQuery("SELECT * FROM Worker")
+        while (resultSet.next()) workerList.add(Worker.toObject(resultSet))
+        return workerList
+    }
+
+    fun addWorker(Worker: Worker) = statement.executeUpdate(Worker.makeInsertString())
+    fun updateWorker(Worker: Worker) = statement.executeUpdate(Worker.makeUpdateString())
+    fun deleteWorker(id: Int) = statement.executeUpdate("DELETE FROM Worker WHERE idWorker = $id")
 }

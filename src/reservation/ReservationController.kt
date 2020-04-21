@@ -122,7 +122,7 @@ class ReservationController : Initializable {
     }
 
     private fun updateReservation() {
-        if (validate(tableReservation.selectionModel.selectedItem.idRoom)) {
+        if (validate(tableReservation.selectionModel.selectedItem.idRoom, true)) {
             val sum = getDayDifference(tfStart.text, tfEnd.text) *
                     (tableReservation.selectionModel.selectedItem.room?.price ?: 1)
             DbHandler.updateReservation(Reservation(
@@ -145,7 +145,7 @@ class ReservationController : Initializable {
     }
 
     private fun addReservation() {
-        if (validate(tableRoom.selectionModel.selectedItem.idRoom)) {
+        if (validate(tableRoom.selectionModel.selectedItem.idRoom, false)) {
             val sum = getDayDifference(tfStart.text, tfEnd.text) *
                     tableRoom.selectionModel.selectedItem.price
             DbHandler.addCReservation(Reservation(
@@ -162,7 +162,7 @@ class ReservationController : Initializable {
         showReservation()
     }
 
-    private fun validate(idRoom: Int): Boolean {
+    private fun validate(idRoom: Int, isUpdate: Boolean): Boolean {
         try {
             SimpleDateFormat("YYYY-MM-DD").parse(tfStart.text)
             SimpleDateFormat("YYYY-MM-DD").parse(tfEnd.text)
@@ -170,7 +170,7 @@ class ReservationController : Initializable {
             showAlert("Дата введена некорректно")
             return false
         }
-        if (!DbHandler.checkReservation(idRoom, tfStart.text to tfEnd.text)) {
+        if (!isUpdate && !DbHandler.checkReservation(idRoom, tfStart.text to tfEnd.text)) {
             showAlert("Комната уже забронирована на эти дни")
             return false
         }
